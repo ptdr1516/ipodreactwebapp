@@ -420,7 +420,47 @@ class App extends React.Component {
     };
 
     // Render the App Component
+    render() {
+        const { menu, screen, mouse, songsList, theme } = this.state;
 
+        // changing the app theme
+        const styling = () => {
+            if (theme.themeIndex === 0)
+            {
+                return "background-color: ''; transition: all 2s linear";
+            }
+            else
+            {
+                return "background-color: black; transition: all 2s linear";
+            }
+        };
+
+        return (
+            <div className="App">
+                <Ipod
+                    screen={screen}
+                    menu={menu}
+                    mouse={mouse}
+                    songsList={songsList}
+                    theme={theme}
+                    isMenuVisible={this.isMenuVisible}
+                    addClass={this.addClass}
+                    removeClass={this.removeClass}
+                    tap={this.tap}
+                    rotate={this.rotate}
+                    play={this.play}
+                    nextSong={this.nextSong}
+                    prevSong={this.prevSong}
+                    updateProgress={this.updateProgress}
+                    controllerRef={this.controllerRef}
+                    progressRef={this.progressRef}
+                />
+                <Helmet>
+                    <style>{`body { ${styling()} }`}</style>
+                </Helmet>
+            </div>
+        );
+    }
 
 }
 
