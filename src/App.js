@@ -260,43 +260,26 @@ class App extends React.Component {
                     menu.menuVisible === "yes" &&
                     menu.musicVisible === "no" &&
                     menu.settingsVisible === "no"
-                )
-                {
+                ) {
                     const angle = event.detail.angle;
-                    if (angle >= 0 && angle <= 90)
-                    {
+                    if (angle >= 0 && angle <= 90) {
                         menu.optionsIndex = 0;
-                    }
-                    else if (angle > 90 && angle <= 180)
-                    {
+                    } else if (angle > 90 && angle <= 180) {
                         menu.optionsIndex = 1;
-                    }
-                    else if (angle > 180 && angle <= 270)
-                    {
+                    } else if (angle > 180 && angle <= 270) {
                         menu.optionsIndex = 2;
-                    }
-                    else if (angle > 270 && angle <= 360)
-                    {
+                    } else if (angle > 270 && angle <= 360) {
                         menu.optionsIndex = 3;
-                    }
-                    else if (angle >= -90 && angle < 0)
-                    {
+                    } else if (angle >= -90 && angle < 0) {
                         menu.optionsIndex = 3;
-                    }
-                    else if (angle >= -180 && angle < -90)
-                    {
+                    } else if (angle >= -180 && angle < -90) {
                         menu.optionsIndex = 2;
-                    }
-                    else if (angle >= -270 && angle < -180)
-                    {
+                    } else if (angle >= -270 && angle < -180) {
                         menu.optionsIndex = 1;
-                    }
-                    else if (angle >= -360 && angle < -270)
-                    {
+                    } else if (angle >= -360 && angle < -270) {
                         menu.optionsIndex = 0;
+                    } else {
                     }
-                    else
-                    {}
                 }
                 // Rotation in music menu
                 else if (
@@ -305,31 +288,20 @@ class App extends React.Component {
                     menu.settingsVisible === "no"
                 ) {
                     const angle = event.detail.angle;
-                    if (angle >= 0 && angle <= 120)
-                    {
+                    if (angle >= 0 && angle <= 120) {
                         menu.musicIndex = 0;
-                    }
-                    else if (angle > 120 && angle <= 240)
-                    {
+                    } else if (angle > 120 && angle <= 240) {
                         menu.musicIndex = 1;
-                    }
-                    else if (angle > 240 && angle <= 360)
-                    {
+                    } else if (angle > 240 && angle <= 360) {
                         menu.musicIndex = 2;
-                    }
-                    else if (angle >= -120 && angle < 0)
-                    {
+                    } else if (angle >= -120 && angle < 0) {
                         menu.musicIndex = 2;
-                    }
-                    else if (angle >= -240 && angle < -120)
-                    {
+                    } else if (angle >= -240 && angle < -120) {
                         menu.musicIndex = 1;
-                    }
-                    else if (angle >= -360 && angle < -240)
-                    {
+                    } else if (angle >= -360 && angle < -240) {
                         menu.musicIndex = 0;
+                    } else {
                     }
-                    else {}
                 }
                 // Rotation in Settings menu
                 else if (
@@ -338,49 +310,49 @@ class App extends React.Component {
                     menu.settingsVisible === "yes"
                 ) {
                     const angle = event.detail.angle;
-                    if (angle >= 0 && angle <= 120)
-                    {
+                    if (angle >= 0 && angle <= 120) {
                         menu.settingsIndex = 0;
-                    }
-                    else if (angle > 120 && angle <= 240)
-
+                    } else if (angle > 120 && angle <= 240) {
                         menu.settingsIndex = 1;
-                    }
-                    else if (angle > 240 && angle <= 360)
-                    {
+                    } else if (angle > 240 && angle <= 360) {
                         menu.settingsIndex = 2;
-                    }
-                    else if (angle >= -120 && angle < 0)
-                    {
+                    } else if (angle >= -120 && angle < 0) {
                         menu.settingsIndex = 2;
-                    }
-                    else if (angle >= -240 && angle < -120)
-                    {
+                    } else if (angle >= -240 && angle < -120) {
                         menu.settingsIndex = 1;
-                    }
-                    else if (angle >= -360 && angle < -240)
-                    {
+                    } else if (angle >= -360 && angle < -240) {
                         menu.settingsIndex = 0;
-                    } else {}
+                    } else {
+                    }
 
-                this.setState({menu})
+                    this.setState({menu});
+                }
             });
     };
+
+    // Play/Pause button for song
+    play = (songsList) => {
+        if (
+            this.state.menu.pageRender === "yes" &&
+            this.state.screen.screenIndex === 7
+        )
+        {
+            const { songIndex } = songsList;
+            if (songsList.isPlaying)
+            {
+                songsList.isPlaying = false;
+                songsList.songs[songIndex].pause();
+            }
+            else
+            {
+                songsList.isPlaying = true;
+                songsList.songs[songIndex].play();
+            }
+            this.setState({ songsList });
+        }
+        else{}
+    };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
