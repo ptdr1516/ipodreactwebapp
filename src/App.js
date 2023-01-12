@@ -405,6 +405,22 @@ class App extends React.Component {
         else {}
     };
 
+    updateProgress = (event) => {
+        if (
+            this.state.menu.pageRender === "yes" &&
+            this.state.screen.screenIndex === 7
+        )
+        {
+            const { currentTime, duration } = event.srcElement;
+            const progressPercent = (currentTime / duration) * 100;
+
+            this.progressRef.current.style.width = progressPercent + "%";
+        }
+        else {}
+    };
+
+    // Render the App Component
+
 
 }
 
