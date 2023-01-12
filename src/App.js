@@ -249,8 +249,123 @@ class App extends React.Component {
     // Functionality to handle the screen rotation
     rotate = (menu) => {
         //
+        this.activeRegionOuter.bind(
+            this.containerElementOuter,
+            "rotate",
+            (event) => {
+                event.stopPropagation();
 
-    }
+                // rotation in main menu
+                if (
+                    menu.menuVisible === "yes" &&
+                    menu.musicVisible === "no" &&
+                    menu.settingsVisible === "no"
+                )
+                {
+                    const angle = event.detail.angle;
+                    if (angle >= 0 && angle <= 90)
+                    {
+                        menu.optionsIndex = 0;
+                    }
+                    else if (angle > 90 && angle <= 180)
+                    {
+                        menu.optionsIndex = 1;
+                    }
+                    else if (angle > 180 && angle <= 270)
+                    {
+                        menu.optionsIndex = 2;
+                    }
+                    else if (angle > 270 && angle <= 360)
+                    {
+                        menu.optionsIndex = 3;
+                    }
+                    else if (angle >= -90 && angle < 0)
+                    {
+                        menu.optionsIndex = 3;
+                    }
+                    else if (angle >= -180 && angle < -90)
+                    {
+                        menu.optionsIndex = 2;
+                    }
+                    else if (angle >= -270 && angle < -180)
+                    {
+                        menu.optionsIndex = 1;
+                    }
+                    else if (angle >= -360 && angle < -270)
+                    {
+                        menu.optionsIndex = 0;
+                    }
+                    else
+                    {}
+                }
+                // Rotation in music menu
+                else if (
+                    menu.menuVisible === "yes" &&
+                    menu.musicVisible === "yes" &&
+                    menu.settingsVisible === "no"
+                ) {
+                    const angle = event.detail.angle;
+                    if (angle >= 0 && angle <= 120)
+                    {
+                        menu.musicIndex = 0;
+                    }
+                    else if (angle > 120 && angle <= 240)
+                    {
+                        menu.musicIndex = 1;
+                    }
+                    else if (angle > 240 && angle <= 360)
+                    {
+                        menu.musicIndex = 2;
+                    }
+                    else if (angle >= -120 && angle < 0)
+                    {
+                        menu.musicIndex = 2;
+                    }
+                    else if (angle >= -240 && angle < -120)
+                    {
+                        menu.musicIndex = 1;
+                    }
+                    else if (angle >= -360 && angle < -240)
+                    {
+                        menu.musicIndex = 0;
+                    }
+                    else {}
+                }
+                // Rotation in Settings menu
+                else if (
+                    menu.menuVisible === "yes" &&
+                    menu.musicVisible === "no" &&
+                    menu.settingsVisible === "yes"
+                ) {
+                    const angle = event.detail.angle;
+                    if (angle >= 0 && angle <= 120)
+                    {
+                        menu.settingsIndex = 0;
+                    }
+                    else if (angle > 120 && angle <= 240)
+
+                        menu.settingsIndex = 1;
+                    }
+                    else if (angle > 240 && angle <= 360)
+                    {
+                        menu.settingsIndex = 2;
+                    }
+                    else if (angle >= -120 && angle < 0)
+                    {
+                        menu.settingsIndex = 2;
+                    }
+                    else if (angle >= -240 && angle < -120)
+                    {
+                        menu.settingsIndex = 1;
+                    }
+                    else if (angle >= -360 && angle < -240)
+                    {
+                        menu.settingsIndex = 0;
+                    } else {}
+
+                this.setState({menu})
+            });
+    };
 }
 
 
