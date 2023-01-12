@@ -141,7 +141,106 @@ class App extends React.Component {
             mouse.innerCircle = "up";
             this.setState({mouse})
         }
-    }
+    };
+
+    // Functionality to handle the click operations in the app
+    tap = (menu, screen) => {
+        const { songsList, theme } = this.state;
+        // Goto sub-menu of the main menu
+        if (
+            menu.menuVisible === "yes" &&
+            menu.musicVisible === "no" &&
+            menu.settingsVisible === "no"
+        )
+        {
+            if (menu.optionsIndex === 0)
+            {
+                menu.musicVisible = "yes";
+            }
+            else if (menu.optionsIndex === 1)
+            {
+                menu.pageRender = "yes";
+                menu.menuVisible = "no";
+                screen.screenIndex = 6;
+            }
+            else if (menu.optionsIndex === 2)
+            {
+                menu.pageRender = "yes";
+                menu.menuVisible = "no";
+                screen.screenIndex = 5;
+            }
+            else
+            {
+                menu.settingsVisible = "yes";
+            }
+        }
+        // Music menu page
+        else if(
+            menu.menuVisible === "yes" &&
+            menu.musicVisible === "yes" &&
+            menu.settingsVisible === "no"
+        )
+        {
+            if (menu.musicIndex === 0)
+            {
+                menu.pageRender = "yes";
+                menu.menuVisible = "no";
+                screen.screenIndex = 7;
+                songsList.isPlaying = true;
+                songsList.songs[songsList.songIndex].play();
+            }
+            else if (menu.musicIndex === 1)
+            {
+                menu.pageRender = "yes";
+                menu.menuVisible = "no";
+                screen.screenIndex = 8;
+            }
+            else
+            {
+                menu.pageRender = "yes";
+                menu.menuVisible = "no";
+                screen.screenIndex = 9;
+            }
+        }
+        // Sttings Menu page
+        else if (
+            menu.menuVisible === "yes" &&
+            menu.musicVisible === "no" &&
+            menu.settingsVisible === "yes"
+        )
+        {
+            if (menu.settingsIndex === 0)
+            {
+                if (screen.wallpaperIndex < 4)
+                {
+                    screen.wallpaperIndex += 1;
+                }
+                else
+                {
+                    screen.wallpaperIndex = 0;
+                }
+                screen.screenIndex = screen.wallpaperIndex;
+            }
+            // changing the theme
+            else
+            {
+                if (theme.themeIndex === 0)
+                {
+                    theme.themeIndex = 1;
+                }
+                else
+                {
+                    theme.themeIndex = 0;
+                }
+            }
+        }
+        this.setState({
+            menu, screen, songsList, theme
+        });
+        return;
+    };
+
+
 }
 
 
