@@ -122,7 +122,17 @@ class App extends React.Component {
         this.setState({
             menu, screen, songsList
         });
-    }
+        return;
+    };
+
+    // Functionality to handle the down press css effect on middle button
+    addClass = (classname, event) => {
+        if (classname === "inner-circle" && event === "down") {
+            const { mouse } = this.state;
+            mouse.innerCircle = "down";
+            this.setState({mouse});
+        }
+    };
 }
 
 
