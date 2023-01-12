@@ -51,8 +51,27 @@ class App extends React.Component {
                 // wallpaper traversal
                 screenIndex: 0,
             },
-        }
-
+            // State for managing the mouse click
+            mouse: {
+                innerCircle: "",
+            },
+            // State for managing the songs
+            songsList: {
+                songs: [],
+                thumbnails: [],
+                songIndex: 0,
+                name: [],
+                isPlaying: false,
+            },
+            // State for managing the themes
+            theme: {
+                themeList: [],
+                themeIndex: 0,
+            },
+        };
+        // Reference to access the components
+        this.controllerRef = React.createRef();
+        this.progressRef = React.createRef();
     }
 }
 
