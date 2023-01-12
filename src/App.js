@@ -357,7 +357,7 @@ class App extends React.Component {
     nextSong = (songsList) => {
         if (
             this.state.menu.pageRender === "yes" &&
-            ths.state.screen.screenIndex === 7
+            this.state.screen.screenIndex === 7
         )
         {
             songsList.songs.map((song) => {
@@ -463,7 +463,5 @@ class App extends React.Component {
     }
 
 }
-
-
 
 export default App;
