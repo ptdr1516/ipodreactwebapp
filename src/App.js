@@ -352,6 +352,32 @@ class App extends React.Component {
         }
         else{}
     };
+
+    // next button for next song
+    nextSong = (songsList) => {
+        if (
+            this.state.menu.pageRender === "yes" &&
+            ths.state.screen.screenIndex === 7
+        )
+        {
+            songsList.songs.map((song) => {
+                song.pause();
+                song.currentTime = 0;
+                return [];
+            });
+            songsList.isPlaying = false;
+            songsList.songIndex += 1;
+
+            if (songsList.songIndex > songsList.songs.length - 1)
+            {
+                songsList.songIndex = 0;
+            }
+            songsList.songs[songsList.songIndex].play();
+            songsList.isPlaying = true;
+            this.setState({ songsList });
+        }
+        else {}
+    };
 }
 
 
