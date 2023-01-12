@@ -133,6 +133,15 @@ class App extends React.Component {
             this.setState({mouse});
         }
     };
+
+    // Functionality to handle the up press css effect on middle button
+    removeClass = (classname, event) => {
+        if (classname === "inner-circle" && event === "up") {
+            const {mouse} = this.state;
+            mouse.innerCircle = "up";
+            this.setState({mouse})
+        }
+    }
 }
 
 
