@@ -74,6 +74,12 @@ class App extends React.Component {
         this.progressRef = React.createRef();
     }
 
+    //
+    componentDidMount() {
+        this.containerElementOuter = this.controllerRef.current;
+        this.activeRegionOuter = new ZingTouch.Region(this.containerElementOuter);
+    }
+
     // Menu Functionality
     isMenuVisible = (menu, screen) => {
         const { songsList } = this.state;
@@ -240,7 +246,11 @@ class App extends React.Component {
         return;
     };
 
+    // Functionality to handle the screen rotation
+    rotate = (menu) => {
+        //
 
+    }
 }
 
 
