@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Ipod from './Display/Ipod';
+import ZingTouch from 'zingtouch';
+import Helmet from 'react-helmet';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    constructor() {
+        super();
+        // State
+        this.state = {
+            menu: {
+                options: [
+                    {
+                        music: ["all-songs", "artists", "albums"],
+                    },
+                    {
+                        games: [],
+                    },
+                    {
+                        coverflow: [],
+                    },
+                    {
+                        settings: [
+                            "change-wallpaper",
+                            "change-orientation",
+                            "change-theme",
+                        ],
+                    },
+                ],
+                // Menu Visibility
+                menuVisible: "no",
+                musicVisible: "no",
+                settingsVisible: "no",
+
+                // Menu options index for traversal
+                optionsIndex: 0,
+                musicIndex: 0,
+                settingsIndex: 0,
+                // for main page rendering (songs, artists, albums)
+                pageRender: "no"
+            },
+            // State for managing the screen display
+            screen: {
+                // wallpaper list
+                wallpaper: [
+
+                ],
+                // wallpaper index
+                wallpaperIndex: 0,
+                // wallpaper traversal
+                screenIndex: 0,
+            },
+        }
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default App;
