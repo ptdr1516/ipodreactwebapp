@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ipodreactwebapp/static/css/main.5f7fa5a4.css",
+    "main.js": "/ipodreactwebapp/static/js/main.a3754d28.js",
+    "index.html": "/ipodreactwebapp/index.html",
+    "main.5f7fa5a4.css.map": "/ipodreactwebapp/static/css/main.5f7fa5a4.css.map",
+    "main.a3754d28.js.map": "/ipodreactwebapp/static/js/main.a3754d28.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f7fa5a4.css",
+    "static/js/main.a3754d28.js"
+  ]
+}
