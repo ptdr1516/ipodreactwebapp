@@ -395,7 +395,7 @@ class App extends React.Component {
             songsList.songIndex -= 1;
 
             if (songsList.songIndex < 0)
-            {
+            {cd hooks
                 songsList.songIndex = songsList.songs.length - 1;
             }
             songsList.songs[songsList.songIndex].play();
